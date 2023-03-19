@@ -1,0 +1,26 @@
+<div class="row justify-content-around pt-3">
+    <div class="col-md-12">
+        <h2>Workshop Requests</h2>
+        <table class="table" *ngIf="getPendingWorkshops().length">
+            <thead>
+            <tr>
+                <th scope="col"><u>Workshop Name</u></th>
+                <th scope="col"><u>Organizer</u></th>
+                <th scope="col"><u>Accept</u></th>
+                <th scope="col"><u>Reject</u></th>
+                <th scope="col"><u>View</u></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let w of getPendingWorkshops()">
+                <td>{{w.name}}</td>
+                <td>{{w.organizer}}</td>
+                <td><button class="btn btn-info" (click)="resolveRequest(w, true)" [disabled]="canAccept(w)">Accept</button></td>
+                <td><button class="btn btn-info" (click)="resolveRequest(w, false)">Reject</button></td>
+                <td><a class="btn btn-info" routerLink="/workshops/{{w._id}}">View</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <p *ngIf="!getPendingWorkshops().length">No currently pending requests.</p>
+    </div>
+</div>

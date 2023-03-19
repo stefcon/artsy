@@ -1,0 +1,33 @@
+<div class="row justify-content-around pt-3">
+    <div class="col-md-6">
+        <h2>Top 5 Workshops</h2>
+        <div class="row justify-content-around mt-3" *ngFor="let w of top5Workshops()">
+            <div class="col-sm-12">
+                <workshop-preview [workshop]="w"></workshop-preview>
+            </div>
+        </div>
+    </div>
+</div>
+<hr/>
+<div class="row justify-content-around pt-3">
+    <div class="col-md-6">
+        <h2>All Workshops</h2>
+        <input type="text" class="form-control" [(ngModel)]="nameSearch" placeholder="Search by name">
+        <br/>
+        <input type="text" class="form-control" [(ngModel)]="locationSearch" placeholder="Search by location">
+        <br/>
+        <span>
+            <b>Sort by:</b> &nbsp;
+            <input type="radio" name="sortBy" id="date" value="date" [(ngModel)]="sortBy">
+            <label for="date">Date</label>
+            &nbsp;
+            <input type="radio" name="sortBy" id="name" value="name" [(ngModel)]="sortBy"> 
+            <label for="name">Name</label>
+        </span>
+    </div>
+</div>
+<div class="row justify-content-around mt-2 mb-3" *ngFor="let w of processedWorkshops()">
+    <div class="col-md-6">
+        <workshop-preview [workshop]="w"></workshop-preview>
+    </div>
+</div>

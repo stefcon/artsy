@@ -1,0 +1,60 @@
+<header>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" routerLink="/">Artsy</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav" *ngIf="!isAuthenticated()">
+              <li class="nav-item">
+                <a class="nav-link active" routerLink="/workshops">Workshops</a> <!-- aria-current="page" -->
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-secondary" routerLink="/login">Log in</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav" *ngIf="isAuthenticated()">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/workshops">Workshops</a>
+              </li>
+              <li class="nav-item" *ngIf="isAdministrator()">
+                <a class="nav-link" routerLink="/workshop-requests">Workshop Requests</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/new-pass">Change Password</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/new-workshop">Add Workshop</a>
+              </li>
+              <ng-container *ngIf="isAdministrator()">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/users-list">Users Overview</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/register">Create User</a>
+                </li>
+              </ng-container>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/profile">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-secondary" (click)="logout()">Log out</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</header>

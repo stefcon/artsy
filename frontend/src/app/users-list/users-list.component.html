@@ -1,0 +1,47 @@
+<div class="row justify-content-around pt-3">
+    <div class="col-md-12">
+        <h2>All Users</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col"><u>Username</u></th>
+                <th scope="col"><u>Email</u></th>
+                <th scope="col"><u>Edit</u></th>
+                <th scope="col"><u>Delete</u></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let u of getAllUsers()">
+                <td>{{u.username}}</td>
+                <td>{{u.email}}</td>
+                <td><a class="btn btn-info" routerLink="/edit-user/{{u.username}}">Edit</a></td>
+                <td><a class="btn btn-info" (click)="deleteUser(u)">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row justify-content-around pt-3">
+    <div class="col-md-12">
+        <h2>Requests for Registration</h2>
+        <table class="table" *ngIf="getPendingUsers().length">
+            <thead>
+            <tr>
+                <th scope="col"><u>Username</u></th>
+                <th scope="col"><u>Email</u></th>
+                <th scope="col"><u>Accept</u></th>
+                <th scope="col"><u>Reject</u></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let u of getPendingUsers()">
+                <td>{{u.username}}</td>
+                <td>{{u.email}}</td>
+                <td><button class="btn btn-info" (click)="resolveRequest(u, true)">Accept</button></td>
+                <td><button class="btn btn-info" (click)="resolveRequest(u, false)">Reject</button></td>
+            </tr>
+            </tbody>
+        </table>
+        <p *ngIf="!getPendingUsers().length">No currently pending requests.</p>
+    </div>
+</div>

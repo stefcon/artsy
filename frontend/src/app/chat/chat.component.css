@@ -1,0 +1,25 @@
+.card-header {
+    border-top: 4px solid #00c3ff;
+}
+
+.card-body {
+    position: relative;
+    height: 400px;
+}
+
+.avatar {
+    width: 45px;
+    height: 100%;
+}
+
+.other {
+    background-color: #f5f6f7;
+}
+
+.send-button {
+    padding-top: .55rem;
+}
+
+.hide {
+    display: none !important;
+}

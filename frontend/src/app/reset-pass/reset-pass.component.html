@@ -1,0 +1,17 @@
+
+<div class="row justify-content-around pt-5">
+    <div class="col-md-6">
+        <h2>Reset your password</h2>
+        <form (ngSubmit)="resetPass()">
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control" placeholder="mail@domain" [(ngModel)] = "email">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Send Reset Link</button>
+                <p class="success">{{message}}</p>
+                <p class="error">{{error}}</p>
+            </div>
+        </form>
+    </div>
+</div>

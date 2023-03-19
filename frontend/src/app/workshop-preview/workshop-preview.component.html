@@ -1,0 +1,17 @@
+<div class="row pt-5">
+    <div class="col-md-6">
+      <div class="row justify-content-end pb-5">
+        <img [src]="workshop.pictures[0]" alt="event-image" style=""/>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p>{{workshop.address}}</p>
+      <h1>{{local_date}}</h1>
+      <h2>{{workshop.name}}</h2>
+      <p class="desc">{{workshop.shortDesc}}</p>
+      <div class="buttons" *ngIf="isLoggedIn()">
+        <button class="add" (click)="moreDetails(workshop)">More details</button>
+        <!-- <button class="like"><span>♥</span></button> -->
+      </div>
+    </div>
+</div>

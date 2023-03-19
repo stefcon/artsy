@@ -1,0 +1,80 @@
+<div class="row justify-content-around pt-5">
+    <div class="col-md-6">
+        <h1>Registration for new user</h1>
+        <form ngNativeValidate (ngSubmit)="register()" enctype="multipart/form-data">
+            <div class="d-flex">
+                <div class="mb-3">
+                    <label for="firstname" class="form-label">First name:</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="firstname" required>
+                </div>
+                <div class="px-3"></div>
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Last name:</label>
+                    <input type="text" class="form-control" id='lastname' name='lastname' [(ngModel)]='lastname' required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
+            </div>
+            <div class="d-flex">
+                <div class="mb-3">
+                    <label for="pass1" class="form-label">Password:</label>
+                    <input type="password" class="form-control" id='pass1' name='password1' [(ngModel)]='password1' required>
+                </div>
+                <div class="px-3"></div>
+                <div class="mb-3">
+                    <label for="pass2" class="form-label">Confirm password:</label>
+                    <input type="password" class="form-control" id='pass2' name='password2' [(ngModel)]='password2' required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="tel" class="form-label">Tel:</label>
+                <input type="text" class="form-control" id="tel" name="tel" [(ngModel)]="tel" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="Picture" class="form-label">Picture (optional):</label>
+                <input type="file" class="form-control" id='picture' name='picture' accept="image/jpg, image/jpeg, image/png"
+                 (change)="onFileSelect($event)">
+            </div>
+            <div class="mb-3">
+                <!-- <label for="is-organizer" class="form-label">Organizer?</label>
+                <input type="checkbox" class="form-control" id="is-organizer" name="is-organizer" [(ngModel)]="isOrganizer"> -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="is-organizer" [(ngModel)]="isOrganizer" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Organizer?
+                    </label>
+                  </div>
+            </div>
+            <ng-container *ngIf="isOrganizer">
+                <hr>
+                <div class="mb-3">
+                    <label for="organization-name" class="form-label">Organization name:</label>
+                    <input type="text" class="form-control" id="organization-name" name="organization-name" [(ngModel)]="organizationName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="organization-address" class="form-label">Organization address:</label>
+                    <input type="text" placeholder="Country, state, ZIP, city, street" class="form-control" 
+                    id="organization-address" name="organization-address" [(ngModel)]="organizationAddress" required>
+                </div>
+                <div class="mb-3">
+                    <label for="organization-id" class="form-label">Organization ID:</label>
+                    <input type="text" class="form-control" id="organization-id" name="organization-id" [(ngModel)]="organizationID" required>
+                </div>
+            </ng-container>
+            <div class="mb-3">
+                <span *ngIf="!is_succ" class="error">{{message}}</span>
+                <span *ngIf="is_succ" class="success">{{message}}</span>
+            </div>
+            <button type="submit" class="btn btn-primary mt-5" value='Register'>Register</button>
+        </form>
+        <hr/>
+        Have an account? Sign in <a routerLink="">here.</a>
+        <!-- [style.display]="is_succ ? 'none' : 'block'"  -->
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<table>
+    <tr>
+        <td>Username:</td>
+        <td>
+            <input class="form-control" type="text" name="username" [(ngModel)]="username" (keydown.enter)="login()">
+        </td>
+    </tr>
+    <tr>
+        <td>Password:</td>
+        <td>
+            <input class="form-control" type="password" name="password" [(ngModel)]="password" (keydown.enter)="login()">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <button class="btn btn-success" (click)="login()">Login</button>
+        </td>
+    </tr>
+</table>
+<span class="error">{{message}}</span>
+<hr/>
+Register <a routerLink="/register">here.</a>&nbsp;&nbsp;Forgot your password? Click <a routerLink="/reset-pass">here.</a>

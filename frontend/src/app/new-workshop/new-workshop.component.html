@@ -1,0 +1,58 @@
+<div class="row justify-content-around pt-5">
+    <div class="col-md-6">
+        <h2>Create New Workshop</h2>
+        <form ngNativeValidate (ngSubmit)="addWorkshop()" enctype="multipart/form-data">
+            <div class="d-flex">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required>
+                </div>
+                <div class="px-3"></div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address:</label>
+                    <input type="text" class="form-control" id='address' name='address' [(ngModel)]='address' required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="shortDesc" class="form-label">Short Description:</label>
+                <textarea class="form-control" id="shortDesc" name="shortDesc" [(ngModel)]="shortDesc" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="longDesc" class="form-label">Long Description:</label>
+                <textarea class="form-control" id="longDesc" name="longDesc" [(ngModel)]="longDesc" required></textarea>
+            </div>
+            <div class="d-flex">
+                <div class="mb-3">
+                    <label for="seats" class="form-label">Number of Seats:</label>
+                    <input type="number" class="form-control" id='seats' name='seats' [(ngModel)]='seats' required>
+                </div>
+                <div class="px-3"></div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date of the Workshop:</label>
+                    <input type="datetime-local" class="form-control" id='date' name='date' [(ngModel)]='date' required>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div class="mb-3">
+                    <label for="main-photo" class="form-label">Select Main Photo:</label>
+                    <input type="file" class="form-control" id='main-photo' name='main-photo' accept="image/jpg, image/jpeg, image/png"
+                        (change)="onMainPhotoSelect($event)">
+                </div>
+                <div class="px-3"></div>
+                <div class="mb-3">
+                    <label for="gallery" class="form-label">Select Gallery of Photos:</label>
+                    <input type="file" class="form-control" id='gallery' name='gallery' accept="image/jpg, image/jpeg, image/png"
+                        (change)="onGallerySelect($event)" multiple>
+                </div>
+            </div>
+            <hr>
+            <div class="mb-3">
+                <label for="template" class="form-label">Generate via Template (JSON):</label>
+                <input type="file" class="form-control" id='template' name='template' accept="application/JSON"
+                (change)="populateFields($event)">
+            </div>
+            <p class="success">{{message}}</p>
+            <button type="submit" class="btn btn-primary mt-5" value='Add'>Add</button>
+        </form>
+    </div>
+</div>

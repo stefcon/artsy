@@ -1,0 +1,26 @@
+<div class="row justify-content-around pt-5">
+    <div class="col-md-6" *ngIf="!linkError">
+        <h2>Change password</h2>
+        <form (ngSubmit)="updatePass()">
+            <div class="mb-3" *ngIf="!isResetLink">
+                <label class="form-label">Old Password</label>
+                <input type="password" name="pass" class="form-control" placeholder="*******" [(ngModel)]="password">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">New password</label>
+                <input type="password" name="pass" class="form-control" placeholder="*******" [(ngModel)]="password1">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Re-enter password</label>
+                <input type="password" name="conpass" class="form-control" placeholder="*******" [(ngModel)]="password2">
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Reset</button>
+                <p class="error">{{error}}</p>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6" *ngIf="linkError">
+        <p class="error">{{error}}</p>
+    </div>
+</div>
